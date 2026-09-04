@@ -168,6 +168,10 @@ function hasPlatform(post, platform) {
   return false;
 }
 
+function isShort(post) {
+  return post.id.startsWith('ss');
+}
+
 function renderList() {
   const yearF = document.getElementById('filterYear').value;
   const textF = document.getElementById('filterText').value.trim().toLowerCase();
@@ -209,6 +213,13 @@ function renderList() {
     yt.className = 'badge ' + (hasPlatform(p, 'youtube') ? 'ok' : 'missing');
     yt.textContent = hasPlatform(p, 'youtube') ? 'YT済' : 'YT未';
     meta.appendChild(yt);
+
+    if (isShort(p)) {
+      const sh = document.createElement('span');
+      sh.className = 'badge';
+      sh.textContent = 'ショート';
+      meta.appendChild(sh);
+    }
 
     if (p.deviceRestricted) {
       const dr = document.createElement('span');
@@ -275,7 +286,7 @@ async function renderDetail(p) {
   year.className = 'detail-year';
   const dp = p.date.split('-');
   const dateLabel = dp.length === 3 ? (dp[0] + '年' + parseInt(dp[1],10) + '月' + parseInt(dp[2],10) + '日') : p.date;
-  year.textContent = dateLabel + ' ・ ' + p.type;
+  year.textContent = dateLabel + ' ・ ' + p.type + (isShort(p) ? ' ・ ショート' : '');
   pane.appendChild(year);
 
   // credits
@@ -312,6 +323,10 @@ async function renderDetail(p) {
   nicoA.href = p.url; nicoA.target = '_blank'; nicoA.rel = 'noopener noreferrer';
   nicoA.textContent = p.title;
   nicoRow.appendChild(nicoA);
+  const nicoId = document.createElement('span');
+  nicoId.style.color = 'var(--sub)'; nicoId.style.fontSize = '0.78rem';
+  nicoId.textContent = ' (' + p.id + ')';
+  nicoRow.appendChild(nicoId);
   if (p.deviceRestricted) {
     const dr = document.createElement('span');
     dr.className = 'badge warn';

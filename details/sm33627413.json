@@ -1,23 +1,25 @@
 {
-  "id": "sm33627413",
-  "credits": {
-    "lyrics": null,
-    "music": null,
-    "arrangement": null
+ "id": "sm33627413",
+ "credits": {
+  "lyrics": null,
+  "music": null,
+  "arrangement": null
+ },
+ "externalLinks": [
+  {
+   "platform": "piapro",
+   "url": "https://piapro.jp/t/aXDp"
   },
-  "externalLinks": [
-    {
-      "platform": "piapro",
-      "url": "https://piapro.jp/t/aXDp"
-    },
-    {
-      "platform": "piapro",
-      "url": "https://piapro.jp/t/QB3L"
-    }
-  ],
-  "relatedIds": [],
-  "rightsStatus": {
-    "niconicoMonetization": "registered"
-  },
-  "notes": ""
+  {
+   "platform": "piapro",
+   "url": "https://piapro.jp/t/QB3L"
+  }
+ ],
+ "relatedIds": [
+  "sm32582413"
+ ],
+ "rightsStatus": {
+  "niconicoMonetization": "registered"
+ },
+ "notes": ""
 }
