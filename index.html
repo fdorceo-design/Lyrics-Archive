@@ -57,6 +57,14 @@
     border-radius: 4px; background: var(--bg); color: var(--fg);
   }
   .count { color: var(--sub); font-size: 0.78rem; margin-left: auto; }
+  .tag-chips { display: flex; gap: 0.35rem; flex-wrap: wrap; align-items: center; }
+  .tag-chip {
+    font-size: 0.78rem; padding: 0.25rem 0.6rem; border: 1px solid var(--line);
+    border-radius: 999px; background: var(--bg); color: var(--fg); cursor: pointer;
+    user-select: none;
+  }
+  .tag-chip:hover { background: var(--panel-bg); }
+  .tag-chip.active { background: var(--selected); border-color: var(--link); color: var(--link); }
 
   .main { flex: 1; display: flex; min-height: 0; }
   .list-pane {
@@ -95,7 +103,6 @@
   }
   .empty-note { color: var(--sub); font-size: 0.85rem; font-style: italic; }
   .placeholder { color: var(--sub); padding: 2rem; text-align: center; }
-  .rights-row { font-size: 0.88rem; }
 </style>
 </head>
 <body>
@@ -103,7 +110,7 @@
 <header>
   <h1>Lyrics Archive</h1>
   <div class="controls">
-    <select id="filterTag"><option value="">タグ: すべて</option></select>
+    <div class="tag-chips" id="tagChips"></div>
     <select id="filterYear"><option value="">年: すべて</option></select>
     <input id="filterText" type="text" placeholder="タイトル検索..." />
     <span class="count" id="count"></span>
@@ -118,62 +125,70 @@
 </div>
 
 <script>
-let WORKS = [];
+let POSTS = [];
+let POSTS_BY_ID = new Map();
 let selectedId = null;
+let activeTags = new Set();
 
-const PLATFORM_LABEL = { niconico: 'ニコニコ', youtube: 'YouTube', piapro: 'ピアプロ', note: 'note' };
+const PLATFORM_LABEL = { youtube: 'YouTube', piapro: 'ピアプロ', note: 'note' };
+
+function renderTagChips() {
+  const wrap = document.getElementById('tagChips');
+  wrap.innerHTML = '';
+  const tags = [...new Set(POSTS.map(p => p.type).filter(Boolean))].sort();
+  for (const t of tags) {
+    const chip = document.createElement('span');
+    chip.className = 'tag-chip' + (activeTags.has(t) ? ' active' : '');
+    chip.textContent = t;
+    chip.addEventListener('click', () => {
+      if (activeTags.has(t)) activeTags.delete(t);
+      else activeTags.add(t);
+      renderTagChips();
+      renderList();
+    });
+    wrap.appendChild(chip);
+  }
+}
 
 function populateFilters() {
-  const tagSel = document.getElementById('filterTag');
+  const tags = [...new Set(POSTS.map(p => p.type).filter(Boolean))];
+  activeTags = new Set(tags);
+  renderTagChips();
   const yearSel = document.getElementById('filterYear');
-  const tags = [...new Set(WORKS.map(w => w.type).filter(Boolean))].sort();
-  tags.forEach(t => {
-    const o = document.createElement('option'); o.value = t; o.textContent = t;
-    tagSel.appendChild(o);
-  });
-  const years = [...new Set(WORKS.map(w => w.productionYear))].sort((a,b) => b - a);
+  const years = [...new Set(POSTS.map(p => p.date.slice(0,4)))].sort((a,b) => b - a);
   years.forEach(y => {
     const o = document.createElement('option'); o.value = y; o.textContent = y + '年';
     yearSel.appendChild(o);
   });
 }
 
-function hasPlatform(work, platform) {
-  return work.releases.some(r => r.platform === platform && (r.id || r.url));
-}
-
-function hasDeviceRestricted(work) {
-  return work.releases.some(r => r.platform === 'niconico' && r.deviceRestricted);
-}
-
-function hasMonetized(work) {
-  return work.releases.some(r => r.platform === 'niconico' && r.monetized);
+function hasPlatform(post, platform) {
+  return post.externalLinks.some(r => r.platform === platform && (r.id || r.url));
 }
 
 function renderList() {
-  const tagF = document.getElementById('filterTag').value;
   const yearF = document.getElementById('filterYear').value;
   const textF = document.getElementById('filterText').value.trim().toLowerCase();
 
-  const filtered = WORKS.filter(w => {
-    if (tagF && w.type !== tagF) return false;
-    if (yearF && String(w.productionYear) !== yearF) return false;
-    if (textF && !w.title.toLowerCase().includes(textF)) return false;
+  const filtered = POSTS.filter(p => {
+    if (!activeTags.has(p.type)) return false;
+    if (yearF && p.date.slice(0,4) !== yearF) return false;
+    if (textF && !p.title.toLowerCase().includes(textF)) return false;
     return true;
   });
 
-  document.getElementById('count').textContent = filtered.length + ' / ' + WORKS.length + ' 作品';
+  document.getElementById('count').textContent = filtered.length + ' / ' + POSTS.length + ' 件';
 
   const pane = document.getElementById('listPane');
   pane.innerHTML = '';
-  for (const w of filtered) {
+  for (const p of filtered) {
     const row = document.createElement('div');
-    row.className = 'work-row' + (w.songId === selectedId ? ' selected' : '');
-    row.dataset.id = w.songId;
+    row.className = 'work-row' + (p.id === selectedId ? ' selected' : '');
+    row.dataset.id = p.id;
 
     const title = document.createElement('div');
     title.className = 'work-title';
-    title.textContent = w.title;
+    title.textContent = p.title;
     row.appendChild(title);
 
     const meta = document.createElement('div');
@@ -181,19 +196,19 @@ function renderList() {
 
     const typeBadge = document.createElement('span');
     typeBadge.className = 'badge';
-    typeBadge.textContent = w.type;
+    typeBadge.textContent = p.type;
     meta.appendChild(typeBadge);
 
     const yearBadge = document.createElement('span');
-    yearBadge.textContent = w.productionYear + '年';
+    yearBadge.textContent = p.date.slice(0,4) + '年';
     meta.appendChild(yearBadge);
 
     const yt = document.createElement('span');
-    yt.className = 'badge ' + (hasPlatform(w, 'youtube') ? 'ok' : 'missing');
-    yt.textContent = hasPlatform(w, 'youtube') ? 'YT済' : 'YT未';
+    yt.className = 'badge ' + (hasPlatform(p, 'youtube') ? 'ok' : 'missing');
+    yt.textContent = hasPlatform(p, 'youtube') ? 'YT済' : 'YT未';
     meta.appendChild(yt);
 
-    if (hasDeviceRestricted(w)) {
+    if (p.deviceRestricted) {
       const dr = document.createElement('span');
       dr.className = 'badge warn';
       dr.textContent = 'デバイス制限';
@@ -201,25 +216,36 @@ function renderList() {
     }
 
     row.appendChild(meta);
-    row.addEventListener('click', () => { selectedId = w.songId; renderList(); renderDetail(w); });
+    row.addEventListener('click', () => { selectedId = p.id; renderList(); renderDetail(p); });
     pane.appendChild(row);
   }
 }
 
-function renderDetail(w) {
+function selectPost(id) {
+  const p = POSTS_BY_ID.get(id);
+  if (!p) return;
+  selectedId = id;
+  renderList();
+  renderDetail(p);
+  document.getElementById('detailPane').scrollTop = 0;
+  const row = document.querySelector('.work-row.selected');
+  if (row) row.scrollIntoView({ block: 'nearest' });
+}
+
+function renderDetail(p) {
   const pane = document.getElementById('detailPane');
   pane.innerHTML = '';
 
   const title = document.createElement('div');
   title.className = 'detail-title';
-  title.textContent = w.title;
+  title.textContent = p.title;
   pane.appendChild(title);
 
   const year = document.createElement('div');
   year.className = 'detail-year';
-  const dateParts = (w.earliestDate || '').split('-');
-  const dateLabel = dateParts.length === 3 ? (dateParts[0] + '年' + parseInt(dateParts[1],10) + '月' + parseInt(dateParts[2],10) + '日') : (w.productionYear + '年');
-  year.textContent = dateLabel + ' ・ ' + w.type;
+  const dp = p.date.split('-');
+  const dateLabel = dp.length === 3 ? (dp[0] + '年' + parseInt(dp[1],10) + '月' + parseInt(dp[2],10) + '日') : p.date;
+  year.textContent = dateLabel + ' ・ ' + p.type;
   pane.appendChild(year);
 
   // credits
@@ -229,10 +255,10 @@ function renderDetail(w) {
   const labels = { lyrics: '作詞', music: '作曲', arrangement: '編曲' };
   let hasCredit = false;
   for (const k of ['lyrics','music','arrangement']) {
-    if (w.credits && w.credits[k]) {
+    if (p.credits && p.credits[k]) {
       hasCredit = true;
       const r = document.createElement('div'); r.className = 'credit-row';
-      r.innerHTML = '<span class="label">' + labels[k] + '</span>' + w.credits[k];
+      r.innerHTML = '<span class="label">' + labels[k] + '</span>' + p.credits[k];
       creditsSec.appendChild(r);
     }
   }
@@ -242,35 +268,41 @@ function renderDetail(w) {
   }
   pane.appendChild(creditsSec);
 
-  // releases (grouped by platform)
+  // posting / links
   const relSec = document.createElement('div');
   relSec.className = 'section';
   const rh = document.createElement('h2'); rh.textContent = '投稿・掲載先'; relSec.appendChild(rh);
-  for (const r of w.releases) {
-    const row = document.createElement('div'); row.className = 'release-row';
-    const platform = document.createElement('span');
-    platform.className = 'release-platform';
-    platform.textContent = PLATFORM_LABEL[r.platform] || r.platform;
-    row.appendChild(platform);
 
-    if (r.id || r.url) {
+  const nicoRow = document.createElement('div'); nicoRow.className = 'release-row';
+  const nicoPlatform = document.createElement('span');
+  nicoPlatform.className = 'release-platform';
+  nicoPlatform.textContent = 'ニコニコ';
+  nicoRow.appendChild(nicoPlatform);
+  const nicoA = document.createElement('a');
+  nicoA.href = p.url; nicoA.target = '_blank'; nicoA.rel = 'noopener noreferrer';
+  nicoA.textContent = p.title;
+  nicoRow.appendChild(nicoA);
+  if (p.deviceRestricted) {
+    const dr = document.createElement('span');
+    dr.className = 'badge warn';
+    dr.style.fontSize = '0.72rem';
+    dr.textContent = 'デバイス制限';
+    nicoRow.appendChild(dr);
+  }
+  relSec.appendChild(nicoRow);
+
+  for (const platform of ['youtube','piapro','note']) {
+    const r = p.externalLinks.find(x => x.platform === platform);
+    const row = document.createElement('div'); row.className = 'release-row';
+    const plat = document.createElement('span');
+    plat.className = 'release-platform';
+    plat.textContent = PLATFORM_LABEL[platform];
+    row.appendChild(plat);
+    if (r && (r.id || r.url)) {
       const a = document.createElement('a');
       a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
       a.textContent = r.versionLabel || r.url;
       row.appendChild(a);
-      if (r.date) {
-        const d = document.createElement('span');
-        d.style.color = 'var(--sub)'; d.style.fontSize = '0.78rem';
-        d.textContent = ' (' + r.date + (r.releaseType ? ' / ' + r.releaseType : '') + ')';
-        row.appendChild(d);
-      }
-      if (r.deviceRestricted) {
-        const dr = document.createElement('span');
-        dr.className = 'badge warn';
-        dr.style.fontSize = '0.72rem';
-        dr.textContent = 'デバイス制限';
-        row.appendChild(dr);
-      }
     } else {
       const m = document.createElement('span');
       m.className = 'release-missing';
@@ -279,26 +311,50 @@ function renderDetail(w) {
     }
     relSec.appendChild(row);
   }
+
   const monetizeRow = document.createElement('div'); monetizeRow.className = 'release-row';
   const monetizeLabel = document.createElement('span');
   monetizeLabel.className = 'release-platform';
   monetizeLabel.textContent = 'ニコニコ楽曲収益化サービス';
   monetizeRow.appendChild(monetizeLabel);
   const monetizeVal = document.createElement('span');
-  monetizeVal.className = 'badge ' + (hasMonetized(w) ? 'ok' : 'missing');
-  monetizeVal.textContent = hasMonetized(w) ? '◯' : '✕';
+  monetizeVal.className = 'badge ' + (p.monetized ? 'ok' : 'missing');
+  monetizeVal.textContent = p.monetized ? '◯' : '✕';
   monetizeRow.appendChild(monetizeVal);
   relSec.appendChild(monetizeRow);
   pane.appendChild(relSec);
+
+  // related songs (cross-linked)
+  if (p.relatedIds && p.relatedIds.length) {
+    const relatedSec = document.createElement('div');
+    relatedSec.className = 'section';
+    const relh = document.createElement('h2'); relh.textContent = '関連曲'; relatedSec.appendChild(relh);
+    for (const rid of p.relatedIds) {
+      const rp = POSTS_BY_ID.get(rid);
+      if (!rp) continue;
+      const row = document.createElement('div'); row.className = 'release-row';
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = rp.title;
+      a.addEventListener('click', (e) => { e.preventDefault(); selectPost(rid); });
+      row.appendChild(a);
+      const d = document.createElement('span');
+      d.style.color = 'var(--sub)'; d.style.fontSize = '0.78rem';
+      d.textContent = ' (' + rp.date + ' / ' + rp.type + ')';
+      row.appendChild(d);
+      relatedSec.appendChild(row);
+    }
+    pane.appendChild(relatedSec);
+  }
 
   // lyrics
   const lyricsSec = document.createElement('div');
   lyricsSec.className = 'section';
   const lh = document.createElement('h2'); lh.textContent = '歌詞'; lyricsSec.appendChild(lh);
-  if (w.lyrics) {
+  if (p.lyrics) {
     const box = document.createElement('div');
     box.className = 'lyrics-box';
-    box.textContent = w.lyrics;
+    box.textContent = p.lyrics;
     lyricsSec.appendChild(box);
   } else {
     const n = document.createElement('div'); n.className = 'empty-note'; n.textContent = '未収録';
@@ -309,10 +365,10 @@ function renderDetail(w) {
 
 async function init() {
   const res = await fetch('works.json');
-  WORKS = await res.json();
-  WORKS.sort((a, b) => b.earliestDate.localeCompare(a.earliestDate));
+  POSTS = await res.json();
+  POSTS.sort((a, b) => b.date.localeCompare(a.date));
+  POSTS_BY_ID = new Map(POSTS.map(p => [p.id, p]));
   populateFilters();
-  document.getElementById('filterTag').addEventListener('change', renderList);
   document.getElementById('filterYear').addEventListener('change', renderList);
   document.getElementById('filterText').addEventListener('input', renderList);
   renderList();
