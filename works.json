@@ -68,8 +68,7 @@
   "url": "https://www.nicovideo.jp/watch/sm46546919",
   "deviceRestricted": false,
   "hasLyrics": false,
-  "hasYouTube": true,
-  "lyricsFile": "lyrics/sm46546919_8 Go Death com.txt"
+  "hasYouTube": true
  },
  {
   "id": "ss46546901",
@@ -89,7 +88,8 @@
   "url": "https://www.nicovideo.jp/watch/sm46546413",
   "deviceRestricted": false,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46546413_8 Go Death com.txt"
  },
  {
   "id": "ss46535635",
@@ -99,8 +99,7 @@
   "url": "https://www.nicovideo.jp/watch/ss46535635",
   "deviceRestricted": false,
   "hasLyrics": false,
-  "hasYouTube": false,
-  "lyricsFile": "lyrics/ss46535635_Orange Governance.txt"
+  "hasYouTube": false
  },
  {
   "id": "sm46535547",
@@ -110,7 +109,8 @@
   "url": "https://www.nicovideo.jp/watch/sm46535547",
   "deviceRestricted": false,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46535547_Orange Governance.txt"
  },
  {
   "id": "sm46479078",
@@ -202,7 +202,8 @@
   "url": "https://www.nicovideo.jp/watch/sm46256239",
   "deviceRestricted": false,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46256239_Cast-Iron Heart.txt"
  },
  {
   "id": "sm46202592",
@@ -242,7 +243,8 @@
   "url": "https://www.nicovideo.jp/watch/sm46093049",
   "deviceRestricted": true,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46093049_Non-Breath Voyage.txt"
  },
  {
   "id": "sm46083446",
@@ -252,7 +254,8 @@
   "url": "https://www.nicovideo.jp/watch/sm46083446",
   "deviceRestricted": false,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46083446_すもももうすももも.txt"
  },
  {
   "id": "sm46076606",
@@ -262,7 +265,8 @@
   "url": "https://www.nicovideo.jp/watch/sm46076606",
   "deviceRestricted": false,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46076606_無呼吸症候群.txt"
  },
  {
   "id": "sm46060098",
@@ -332,7 +336,8 @@
   "url": "https://www.nicovideo.jp/watch/sm45709721",
   "deviceRestricted": false,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45709721_I won't laugh.txt"
  },
  {
   "id": "sm45702445",
@@ -352,7 +357,8 @@
   "url": "https://www.nicovideo.jp/watch/sm45692747",
   "deviceRestricted": false,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45692747_A little happy time.txt"
  },
  {
   "id": "sm45662242",
@@ -8062,7 +8068,8 @@
   "url": "https://www.nicovideo.jp/watch/sm32582413",
   "deviceRestricted": false,
   "hasLyrics": true,
-  "hasYouTube": false
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm32582413_僕は広告代理店に入るよ.txt"
  },
  {
   "id": "sm32560493",
