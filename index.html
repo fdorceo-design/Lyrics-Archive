@@ -115,6 +115,7 @@
     <input id="filterText" type="text" placeholder="タイトル検索..." />
     <span class="count" id="count"></span>
   </div>
+  <div class="controls" id="quickFilters"></div>
 </header>
 
 <div class="main">
@@ -130,6 +131,7 @@ let POSTS_BY_ID = new Map();
 let DETAILS_CACHE = new Map();
 let selectedId = null;
 let activeTags = new Set();
+let shortsOnly = false;
 
 const PLATFORM_LABEL = { youtube: 'YouTube', piapro: 'ピアプロ', note: 'note' };
 
@@ -144,17 +146,51 @@ function renderTagChips() {
     chip.addEventListener('click', () => {
       if (activeTags.has(t)) activeTags.delete(t);
       else activeTags.add(t);
+      shortsOnly = false;
       renderTagChips();
+      renderQuickFilters();
       renderList();
     });
     wrap.appendChild(chip);
   }
 }
 
+function renderQuickFilters() {
+  const wrap = document.getElementById('quickFilters');
+  wrap.innerHTML = '';
+  const allTags = [...new Set(POSTS.map(p => p.type).filter(Boolean))];
+  const typeButtons = ['オリジナル', 'セルフカバー', 'カバー', '別版'].filter(t => allTags.includes(t));
+  for (const t of typeButtons) {
+    const btn = document.createElement('span');
+    btn.className = 'tag-chip';
+    btn.textContent = t + 'のみ';
+    btn.addEventListener('click', () => {
+      activeTags = new Set([t]);
+      shortsOnly = false;
+      renderTagChips();
+      renderQuickFilters();
+      renderList();
+    });
+    wrap.appendChild(btn);
+  }
+  const shortsBtn = document.createElement('span');
+  shortsBtn.className = 'tag-chip' + (shortsOnly ? ' active' : '');
+  shortsBtn.textContent = 'ショートのみ';
+  shortsBtn.addEventListener('click', () => {
+    shortsOnly = !shortsOnly;
+    if (shortsOnly) activeTags = new Set([...new Set(POSTS.map(p => p.type).filter(Boolean))]);
+    renderTagChips();
+    renderQuickFilters();
+    renderList();
+  });
+  wrap.appendChild(shortsBtn);
+}
+
 function populateFilters() {
   const tags = [...new Set(POSTS.map(p => p.type).filter(Boolean))];
   activeTags = new Set(tags);
   renderTagChips();
+  renderQuickFilters();
   const yearSel = document.getElementById('filterYear');
   const years = [...new Set(POSTS.map(p => p.date.slice(0,4)))].sort((a,b) => b - a);
   years.forEach(y => {
@@ -178,6 +214,7 @@ function renderList() {
 
   const filtered = POSTS.filter(p => {
     if (!activeTags.has(p.type)) return false;
+    if (shortsOnly && !isShort(p)) return false;
     if (yearF && p.date.slice(0,4) !== yearF) return false;
     if (textF && !p.title.toLowerCase().includes(textF)) return false;
     return true;
