@@ -93,7 +93,7 @@
   .credit-row { font-size: 0.9rem; margin-bottom: 0.15rem; }
   .credit-row .label { color: var(--sub); display: inline-block; width: 4.5em; }
   .release-row { font-size: 0.88rem; margin-bottom: 0.3rem; display: flex; gap: 0.5rem; align-items: baseline; }
-  .release-platform { color: var(--sub); width: 5.5em; flex-shrink: 0; font-size: 0.78rem; }
+  .release-platform { color: var(--sub); min-width: 5.5em; flex-shrink: 0; font-size: 0.78rem; white-space: nowrap; }
   .release-row a { color: var(--link); text-decoration: none; }
   .release-row a:hover { text-decoration: underline; }
   .release-missing { color: var(--sub); font-style: italic; font-size: 0.85rem; }
@@ -291,37 +291,24 @@ function renderDetail(p) {
   }
   relSec.appendChild(nicoRow);
 
-  for (const platform of ['youtube','piapro','note']) {
-    const r = p.externalLinks.find(x => x.platform === platform);
-    const row = document.createElement('div'); row.className = 'release-row';
-    const plat = document.createElement('span');
-    plat.className = 'release-platform';
-    plat.textContent = PLATFORM_LABEL[platform];
-    row.appendChild(plat);
-    if (r && (r.id || r.url)) {
-      const a = document.createElement('a');
-      a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-      a.textContent = r.versionLabel || r.url;
-      row.appendChild(a);
-    } else {
-      const m = document.createElement('span');
-      m.className = 'release-missing';
-      m.textContent = '未掲載';
-      row.appendChild(m);
-    }
-    relSec.appendChild(row);
+  const ytRow = document.createElement('div'); ytRow.className = 'release-row';
+  const ytPlatform = document.createElement('span');
+  ytPlatform.className = 'release-platform';
+  ytPlatform.textContent = 'YouTube';
+  ytRow.appendChild(ytPlatform);
+  const ytLink = p.externalLinks.find(x => x.platform === 'youtube');
+  if (ytLink && (ytLink.id || ytLink.url)) {
+    const a = document.createElement('a');
+    a.href = ytLink.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.textContent = ytLink.versionLabel || ytLink.url;
+    ytRow.appendChild(a);
+  } else {
+    const m = document.createElement('span');
+    m.className = 'release-missing';
+    m.textContent = '未掲載';
+    ytRow.appendChild(m);
   }
-
-  const monetizeRow = document.createElement('div'); monetizeRow.className = 'release-row';
-  const monetizeLabel = document.createElement('span');
-  monetizeLabel.className = 'release-platform';
-  monetizeLabel.textContent = 'ニコニコ楽曲収益化サービス';
-  monetizeRow.appendChild(monetizeLabel);
-  const monetizeVal = document.createElement('span');
-  monetizeVal.className = 'badge ' + (p.monetized ? 'ok' : 'missing');
-  monetizeVal.textContent = p.monetized ? '◯' : '✕';
-  monetizeRow.appendChild(monetizeVal);
-  relSec.appendChild(monetizeRow);
+  relSec.appendChild(ytRow);
   pane.appendChild(relSec);
 
   // related songs (cross-linked)
@@ -346,6 +333,44 @@ function renderDetail(p) {
     }
     pane.appendChild(relatedSec);
   }
+
+  // other info
+  const otherSec = document.createElement('div');
+  otherSec.className = 'section';
+  const oh = document.createElement('h2'); oh.textContent = 'その他情報'; otherSec.appendChild(oh);
+
+  for (const platform of ['piapro','note']) {
+    const r = p.externalLinks.find(x => x.platform === platform);
+    const row = document.createElement('div'); row.className = 'release-row';
+    const plat = document.createElement('span');
+    plat.className = 'release-platform';
+    plat.textContent = PLATFORM_LABEL[platform];
+    row.appendChild(plat);
+    if (r && (r.id || r.url)) {
+      const a = document.createElement('a');
+      a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.textContent = r.versionLabel || r.url;
+      row.appendChild(a);
+    } else {
+      const m = document.createElement('span');
+      m.className = 'release-missing';
+      m.textContent = '未掲載';
+      row.appendChild(m);
+    }
+    otherSec.appendChild(row);
+  }
+
+  const monetizeRow = document.createElement('div'); monetizeRow.className = 'release-row';
+  const monetizeLabel = document.createElement('span');
+  monetizeLabel.className = 'release-platform';
+  monetizeLabel.textContent = 'ニコニコ楽曲収益化サービス';
+  monetizeRow.appendChild(monetizeLabel);
+  const monetizeVal = document.createElement('span');
+  monetizeVal.className = 'badge ' + (p.monetized ? 'ok' : 'missing');
+  monetizeVal.textContent = p.monetized ? '◯' : '✕';
+  monetizeRow.appendChild(monetizeVal);
+  otherSec.appendChild(monetizeRow);
+  pane.appendChild(otherSec);
 
   // lyrics
   const lyricsSec = document.createElement('div');
