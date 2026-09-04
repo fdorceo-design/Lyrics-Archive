@@ -37,7 +37,8 @@
     "url": "https://www.nicovideo.jp/watch/sm46604805",
     "deviceRestricted": true,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm46604805_I'm Not Japan and Not Nut!.txt"
   },
   {
     "id": "sm46604752",
@@ -67,7 +68,8 @@
     "url": "https://www.nicovideo.jp/watch/sm46546919",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": true
+    "hasYouTube": true,
+    "lyricsFile": "lyrics/sm46546919_8 Go Death com.txt"
   },
   {
     "id": "ss46546901",
@@ -97,7 +99,8 @@
     "url": "https://www.nicovideo.jp/watch/ss46535635",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/ss46535635_Orange Governance.txt"
   },
   {
     "id": "sm46535547",
@@ -117,7 +120,8 @@
     "url": "https://www.nicovideo.jp/watch/sm46479078",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm46479078_空調ファブリーズ.txt"
   },
   {
     "id": "ss46438272",
@@ -157,7 +161,8 @@
     "url": "https://www.nicovideo.jp/watch/sm46435941",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm46435941_DoRe- Not Goodbye.txt"
   },
   {
     "id": "ss46426736",
@@ -607,7 +612,8 @@
     "url": "https://www.nicovideo.jp/watch/sm44886506",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm44886506_guardians.txt"
   },
   {
     "id": "sm44886218",
@@ -847,7 +853,8 @@
     "url": "https://www.nicovideo.jp/watch/sm43798153",
     "deviceRestricted": true,
     "hasLyrics": true,
-    "hasYouTube": true
+    "hasYouTube": true,
+    "lyricsFile": "lyrics/sm43798153_Mercy free.txt"
   },
   {
     "id": "sm43787214",
@@ -1217,7 +1224,8 @@
     "url": "https://www.nicovideo.jp/watch/sm42765381",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm42765381_Our story.txt"
   },
   {
     "id": "sm42741219",
@@ -1557,7 +1565,8 @@
     "url": "https://www.nicovideo.jp/watch/sm42070207",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm42070207_in my case.txt"
   },
   {
     "id": "sm42054465",
@@ -1797,7 +1806,8 @@
     "url": "https://www.nicovideo.jp/watch/sm41572450",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm41572450_tempest[Erythrocyte].txt"
   },
   {
     "id": "sm41556980",
@@ -4537,7 +4547,8 @@
     "url": "https://www.nicovideo.jp/watch/sm36589570",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm36589570_こういうのがイイんでしょ？Sweet&Proud.txt"
   },
   {
     "id": "sm36575667",
@@ -4997,7 +5008,8 @@
     "url": "https://www.nicovideo.jp/watch/sm35682847",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm35682847_さるたん sa-rough-tan.txt"
   },
   {
     "id": "sm35668327",
@@ -6247,7 +6259,8 @@
     "url": "https://www.nicovideo.jp/watch/sm34447508",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm34447508_ねねタンあかん！死んでまうで！.txt"
   },
   {
     "id": "sm34433658",
@@ -7447,7 +7460,8 @@
     "url": "https://www.nicovideo.jp/watch/sm33046422",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm33046422_ネトウヨの友だちができた（パヨクもね）.txt"
   },
   {
     "id": "sm33043245",
@@ -7927,7 +7941,8 @@
     "url": "https://www.nicovideo.jp/watch/sm32692338",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm32692338_聞かせてください～Letter from old me～.txt"
   },
   {
     "id": "sm32685658",
@@ -8067,7 +8082,8 @@
     "url": "https://www.nicovideo.jp/watch/sm32553132",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm32553132_目黒の秋刀魚兄貴_Meguro'sAutumnSwordFather'sBigBrother.txt"
   },
   {
     "id": "sm32536892",
@@ -8097,7 +8113,8 @@
     "url": "https://www.nicovideo.jp/watch/sm32530051",
     "deviceRestricted": false,
     "hasLyrics": true,
-    "hasYouTube": false
+    "hasYouTube": false,
+    "lyricsFile": "lyrics/sm32530051_精一杯死ぬ・Utmost die.txt"
   },
   {
     "id": "sm32514047",

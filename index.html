@@ -243,8 +243,9 @@ async function loadDetails(id) {
   return detail;
 }
 
-async function loadLyrics(id) {
-  const res = await fetch('lyrics/' + encodeURIComponent(id) + '.txt');
+async function loadLyrics(path) {
+  const url = path.split('/').map(encodeURIComponent).join('/');
+  const res = await fetch(url);
   if (!res.ok) throw new Error('歌詞を読み込めませんでした');
   return res.text();
 }
@@ -427,7 +428,7 @@ async function renderDetail(p) {
     lyricsSec.appendChild(box);
     pane.appendChild(lyricsSec);
     try {
-      const lyrics = await loadLyrics(p.id);
+      const lyrics = await loadLyrics(p.lyricsFile);
       if (selectedId === p.id) box.textContent = lyrics;
     } catch (error) {
       if (selectedId === p.id) box.textContent = error.message;
