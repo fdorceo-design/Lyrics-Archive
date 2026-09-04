@@ -127,6 +127,7 @@
 <script>
 let POSTS = [];
 let POSTS_BY_ID = new Map();
+let DETAILS_CACHE = new Map();
 let selectedId = null;
 let activeTags = new Set();
 
@@ -163,7 +164,8 @@ function populateFilters() {
 }
 
 function hasPlatform(post, platform) {
-  return post.externalLinks.some(r => r.platform === platform && (r.id || r.url));
+  if (platform === 'youtube') return Boolean(post.hasYouTube);
+  return false;
 }
 
 function renderList() {
@@ -232,8 +234,35 @@ function selectPost(id) {
   if (row) row.scrollIntoView({ block: 'nearest' });
 }
 
-function renderDetail(p) {
+async function loadDetails(id) {
+  if (DETAILS_CACHE.has(id)) return DETAILS_CACHE.get(id);
+  const res = await fetch('details/' + encodeURIComponent(id) + '.json');
+  if (!res.ok) throw new Error('詳細データを読み込めませんでした');
+  const detail = await res.json();
+  DETAILS_CACHE.set(id, detail);
+  return detail;
+}
+
+async function loadLyrics(id) {
+  const res = await fetch('lyrics/' + encodeURIComponent(id) + '.txt');
+  if (!res.ok) throw new Error('歌詞を読み込めませんでした');
+  return res.text();
+}
+
+async function renderDetail(p) {
   const pane = document.getElementById('detailPane');
+  pane.innerHTML = '<div class="empty-note">読み込み中…</div>';
+
+  let detail;
+  try {
+    detail = await loadDetails(p.id);
+  } catch (error) {
+    if (selectedId === p.id) {
+      pane.innerHTML = '<div class="empty-note">' + error.message + '</div>';
+    }
+    return;
+  }
+  if (selectedId !== p.id) return;
   pane.innerHTML = '';
 
   const title = document.createElement('div');
@@ -255,10 +284,10 @@ function renderDetail(p) {
   const labels = { lyrics: '作詞', music: '作曲', arrangement: '編曲' };
   let hasCredit = false;
   for (const k of ['lyrics','music','arrangement']) {
-    if (p.credits && p.credits[k]) {
+    if (detail.credits && detail.credits[k]) {
       hasCredit = true;
       const r = document.createElement('div'); r.className = 'credit-row';
-      r.innerHTML = '<span class="label">' + labels[k] + '</span>' + p.credits[k];
+      r.innerHTML = '<span class="label">' + labels[k] + '</span>' + detail.credits[k];
       creditsSec.appendChild(r);
     }
   }
@@ -296,7 +325,7 @@ function renderDetail(p) {
   ytPlatform.className = 'release-platform';
   ytPlatform.textContent = 'YouTube';
   ytRow.appendChild(ytPlatform);
-  const ytLink = p.externalLinks.find(x => x.platform === 'youtube');
+  const ytLink = detail.externalLinks.find(x => x.platform === 'youtube');
   if (ytLink && (ytLink.id || ytLink.url)) {
     const a = document.createElement('a');
     a.href = ytLink.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
@@ -312,11 +341,11 @@ function renderDetail(p) {
   pane.appendChild(relSec);
 
   // related songs (cross-linked)
-  if (p.relatedIds && p.relatedIds.length) {
+  if (detail.relatedIds && detail.relatedIds.length) {
     const relatedSec = document.createElement('div');
     relatedSec.className = 'section';
     const relh = document.createElement('h2'); relh.textContent = '関連曲'; relatedSec.appendChild(relh);
-    for (const rid of p.relatedIds) {
+    for (const rid of detail.relatedIds) {
       const rp = POSTS_BY_ID.get(rid);
       if (!rp) continue;
       const row = document.createElement('div'); row.className = 'release-row';
@@ -340,7 +369,7 @@ function renderDetail(p) {
   const oh = document.createElement('h2'); oh.textContent = 'その他情報'; otherSec.appendChild(oh);
 
   for (const platform of ['piapro','note']) {
-    const r = p.externalLinks.find(x => x.platform === platform);
+    const r = detail.externalLinks.find(x => x.platform === platform);
     const row = document.createElement('div'); row.className = 'release-row';
     const plat = document.createElement('span');
     plat.className = 'release-platform';
@@ -366,26 +395,48 @@ function renderDetail(p) {
   monetizeLabel.textContent = 'ニコニコ楽曲収益化サービス';
   monetizeRow.appendChild(monetizeLabel);
   const monetizeVal = document.createElement('span');
-  monetizeVal.className = 'badge ' + (p.monetized ? 'ok' : 'missing');
-  monetizeVal.textContent = p.monetized ? '◯' : '✕';
+  const monetizationStatus = detail.rightsStatus && detail.rightsStatus.niconicoMonetization;
+  monetizeVal.className = 'badge ' + (monetizationStatus === 'registered' ? 'ok' : 'missing');
+  monetizeVal.textContent = monetizationStatus === 'registered' ? '◯' :
+    monetizationStatus === 'not_registered' ? '✕' : '未確認';
   monetizeRow.appendChild(monetizeVal);
   otherSec.appendChild(monetizeRow);
+
+  if (detail.notes) {
+    const notesRow = document.createElement('div');
+    notesRow.className = 'release-row';
+    const notesLabel = document.createElement('span');
+    notesLabel.className = 'release-platform';
+    notesLabel.textContent = '補足';
+    notesRow.appendChild(notesLabel);
+    const notesValue = document.createElement('span');
+    notesValue.textContent = detail.notes;
+    notesRow.appendChild(notesValue);
+    otherSec.appendChild(notesRow);
+  }
   pane.appendChild(otherSec);
 
   // lyrics
   const lyricsSec = document.createElement('div');
   lyricsSec.className = 'section';
   const lh = document.createElement('h2'); lh.textContent = '歌詞'; lyricsSec.appendChild(lh);
-  if (p.lyrics) {
+  if (p.type === 'オリジナル' && p.hasLyrics) {
     const box = document.createElement('div');
     box.className = 'lyrics-box';
-    box.textContent = p.lyrics;
+    box.textContent = '読み込み中…';
     lyricsSec.appendChild(box);
+    pane.appendChild(lyricsSec);
+    try {
+      const lyrics = await loadLyrics(p.id);
+      if (selectedId === p.id) box.textContent = lyrics;
+    } catch (error) {
+      if (selectedId === p.id) box.textContent = error.message;
+    }
   } else {
     const n = document.createElement('div'); n.className = 'empty-note'; n.textContent = '未収録';
     lyricsSec.appendChild(n);
+    pane.appendChild(lyricsSec);
   }
-  pane.appendChild(lyricsSec);
 }
 
 async function init() {
