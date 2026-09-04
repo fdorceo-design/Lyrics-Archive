@@ -36,9 +36,8 @@
   "type": "別版",
   "url": "https://www.nicovideo.jp/watch/sm46604805",
   "deviceRestricted": true,
-  "hasLyrics": true,
-  "hasYouTube": false,
-  "lyricsFile": "lyrics/sm46604805_I'm Not Japan and Not Nut!.txt"
+  "hasLyrics": false,
+  "hasYouTube": false
  },
  {
   "id": "sm46604752",
@@ -47,8 +46,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm46604752",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46604752_I'm Not Japan and Not Nut!.txt"
  },
  {
   "id": "ss46604671",
@@ -116,12 +116,11 @@
   "id": "sm46479078",
   "title": "-空調ファブリーズ- MV_Ver2：SUNO_V5【Original Song】",
   "date": "2026-06-26",
-  "type": "オリジナル",
+  "type": "別版",
   "url": "https://www.nicovideo.jp/watch/sm46479078",
   "deviceRestricted": false,
-  "hasLyrics": true,
-  "hasYouTube": false,
-  "lyricsFile": "lyrics/sm46479078_空調ファブリーズ.txt"
+  "hasLyrics": false,
+  "hasYouTube": false
  },
  {
   "id": "ss46438272",
@@ -181,8 +180,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm46426717",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46426717_空調ファブリーズ.txt"
  },
  {
   "id": "sm46327576",
