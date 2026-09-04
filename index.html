@@ -17,6 +17,7 @@
     --ok: #2a7a3d;
     --missing: #b33;
     --selected: #e8f0fe;
+    --warn: #b8860b;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -30,6 +31,7 @@
       --ok: #6fcf87;
       --missing: #e88;
       --selected: #23324a;
+      --warn: #d4a72c;
     }
   }
   * { box-sizing: border-box; }
@@ -74,6 +76,7 @@
   .badge { background: var(--tag-bg); border-radius: 3px; padding: 0.05rem 0.4rem; }
   .badge.ok { color: var(--ok); }
   .badge.missing { color: var(--missing); }
+  .badge.warn { color: var(--warn); }
 
   .detail-title { font-size: 1.3rem; margin: 0 0 0.3rem; }
   .detail-year { color: var(--sub); font-size: 0.85rem; margin-bottom: 1rem; }
@@ -139,6 +142,14 @@ function hasPlatform(work, platform) {
   return work.releases.some(r => r.platform === platform && (r.id || r.url));
 }
 
+function hasDeviceRestricted(work) {
+  return work.releases.some(r => r.platform === 'niconico' && r.deviceRestricted);
+}
+
+function hasMonetized(work) {
+  return work.releases.some(r => r.platform === 'niconico' && r.monetized);
+}
+
 function renderList() {
   const tagF = document.getElementById('filterTag').value;
   const yearF = document.getElementById('filterYear').value;
@@ -182,10 +193,17 @@ function renderList() {
     yt.textContent = hasPlatform(w, 'youtube') ? 'YT済' : 'YT未';
     meta.appendChild(yt);
 
-    const rights = document.createElement('span');
-    rights.className = 'badge ' + (w.rights && w.rights.registered ? 'ok' : 'missing');
-    rights.textContent = (w.rights && w.rights.registered) ? '権利登録済' : '権利未登録';
-    meta.appendChild(rights);
+    const monetize = document.createElement('span');
+    monetize.className = 'badge ' + (hasMonetized(w) ? 'ok' : 'missing');
+    monetize.textContent = 'ニコニコ楽曲収益化サービス' + (hasMonetized(w) ? '◯' : '✕');
+    meta.appendChild(monetize);
+
+    if (hasDeviceRestricted(w)) {
+      const dr = document.createElement('span');
+      dr.className = 'badge warn';
+      dr.textContent = 'デバイス制限';
+      meta.appendChild(dr);
+    }
 
     row.appendChild(meta);
     row.addEventListener('click', () => { selectedId = w.songId; renderList(); renderDetail(w); });
@@ -249,6 +267,13 @@ function renderDetail(w) {
         d.textContent = ' (' + r.date + (r.releaseType ? ' / ' + r.releaseType : '') + ')';
         row.appendChild(d);
       }
+      if (r.deviceRestricted) {
+        const dr = document.createElement('span');
+        dr.className = 'badge warn';
+        dr.style.fontSize = '0.72rem';
+        dr.textContent = 'デバイス制限';
+        row.appendChild(dr);
+      }
     } else {
       const m = document.createElement('span');
       m.className = 'release-missing';
@@ -258,27 +283,6 @@ function renderDetail(w) {
     relSec.appendChild(row);
   }
   pane.appendChild(relSec);
-
-  // rights
-  const rightsSec = document.createElement('div');
-  rightsSec.className = 'section';
-  const rgh = document.createElement('h2'); rgh.textContent = '権利登録状況'; rightsSec.appendChild(rgh);
-  const rg = w.rights || {};
-  if (rg.registered) {
-    const r1 = document.createElement('div'); r1.className = 'rights-row';
-    r1.textContent = 'サービス: ' + (rg.service || '(不明)');
-    rightsSec.appendChild(r1);
-    const r2 = document.createElement('div'); r2.className = 'rights-row';
-    r2.textContent = '登録番号: ' + (rg.registrationNumber || '(不明)');
-    rightsSec.appendChild(r2);
-    const r3 = document.createElement('div'); r3.className = 'rights-row';
-    r3.textContent = '申請日: ' + (rg.appliedDate || '(不明)');
-    rightsSec.appendChild(r3);
-  } else {
-    const n = document.createElement('div'); n.className = 'empty-note'; n.textContent = '未登録';
-    rightsSec.appendChild(n);
-  }
-  pane.appendChild(rightsSec);
 
   // lyrics
   const lyricsSec = document.createElement('div');
