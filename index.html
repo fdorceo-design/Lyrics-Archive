@@ -193,11 +193,6 @@ function renderList() {
     yt.textContent = hasPlatform(w, 'youtube') ? 'YT済' : 'YT未';
     meta.appendChild(yt);
 
-    const monetize = document.createElement('span');
-    monetize.className = 'badge ' + (hasMonetized(w) ? 'ok' : 'missing');
-    monetize.textContent = 'ニコニコ楽曲収益化サービス' + (hasMonetized(w) ? '◯' : '✕');
-    meta.appendChild(monetize);
-
     if (hasDeviceRestricted(w)) {
       const dr = document.createElement('span');
       dr.className = 'badge warn';
@@ -222,7 +217,9 @@ function renderDetail(w) {
 
   const year = document.createElement('div');
   year.className = 'detail-year';
-  year.textContent = w.productionYear + '年 ・ ' + w.type;
+  const dateParts = (w.earliestDate || '').split('-');
+  const dateLabel = dateParts.length === 3 ? (dateParts[0] + '年' + parseInt(dateParts[1],10) + '月' + parseInt(dateParts[2],10) + '日') : (w.productionYear + '年');
+  year.textContent = dateLabel + ' ・ ' + w.type;
   pane.appendChild(year);
 
   // credits
@@ -282,6 +279,16 @@ function renderDetail(w) {
     }
     relSec.appendChild(row);
   }
+  const monetizeRow = document.createElement('div'); monetizeRow.className = 'release-row';
+  const monetizeLabel = document.createElement('span');
+  monetizeLabel.className = 'release-platform';
+  monetizeLabel.textContent = 'ニコニコ楽曲収益化サービス';
+  monetizeRow.appendChild(monetizeLabel);
+  const monetizeVal = document.createElement('span');
+  monetizeVal.className = 'badge ' + (hasMonetized(w) ? 'ok' : 'missing');
+  monetizeVal.textContent = hasMonetized(w) ? '◯' : '✕';
+  monetizeRow.appendChild(monetizeVal);
+  relSec.appendChild(monetizeRow);
   pane.appendChild(relSec);
 
   // lyrics
