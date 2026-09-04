@@ -9,227 +9,297 @@
     color-scheme: light dark;
     --fg: #222;
     --bg: #fff;
+    --panel-bg: #fafafa;
     --sub: #666;
     --line: #ddd;
     --link: #0645ad;
     --tag-bg: #eee;
+    --ok: #2a7a3d;
+    --missing: #b33;
+    --selected: #e8f0fe;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --fg: #ddd;
       --bg: #1a1a1a;
+      --panel-bg: #202020;
       --sub: #999;
       --line: #333;
       --link: #7aa2f7;
       --tag-bg: #2a2a2a;
+      --ok: #6fcf87;
+      --missing: #e88;
+      --selected: #23324a;
     }
   }
+  * { box-sizing: border-box; }
   body {
     background: var(--bg);
     color: var(--fg);
     font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem 1rem 4rem;
-    line-height: 1.7;
-  }
-  h1 {
-    font-size: 1.4rem;
-    margin-bottom: 0.2rem;
-  }
-  p.desc {
-    color: var(--sub);
-    font-size: 0.9rem;
-    margin-top: 0;
-  }
-  .controls {
+    margin: 0;
+    height: 100vh;
     display: flex;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
+    flex-direction: column;
+    font-size: 14px;
   }
-  .controls select, .controls input {
-    font-size: 0.85rem;
-    padding: 0.35rem 0.5rem;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    background: var(--bg);
-    color: var(--fg);
-  }
-  .count {
-    color: var(--sub);
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-  }
-  ul.song-list {
-    list-style: none;
-    margin: 1.5rem 0 0;
-    padding: 0;
-  }
-  li.song {
-    border-top: 1px solid var(--line);
-    padding: 0.9rem 0;
-  }
-  li.song:last-child {
+  header {
+    padding: 0.8rem 1rem 0.6rem;
     border-bottom: 1px solid var(--line);
+    flex-shrink: 0;
   }
-  .song-date {
-    color: var(--sub);
-    font-size: 0.85rem;
-    font-variant-numeric: tabular-nums;
+  h1 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+  .controls { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+  .controls select, .controls input {
+    font-size: 0.82rem; padding: 0.3rem 0.5rem; border: 1px solid var(--line);
+    border-radius: 4px; background: var(--bg); color: var(--fg);
   }
-  .song-title {
-    font-size: 1.05rem;
-    margin: 0.15rem 0;
+  .count { color: var(--sub); font-size: 0.78rem; margin-left: auto; }
+
+  .main { flex: 1; display: flex; min-height: 0; }
+  .list-pane {
+    width: 40%; min-width: 280px; max-width: 480px;
+    overflow-y: auto; border-right: 1px solid var(--line);
   }
-  .song-title a {
-    color: var(--link);
-    text-decoration: none;
+  .detail-pane { flex: 1; overflow-y: auto; padding: 1.2rem 1.5rem; }
+
+  .work-row {
+    padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--line);
+    cursor: pointer;
   }
-  .song-title a:hover {
-    text-decoration: underline;
+  .work-row:hover { background: var(--panel-bg); }
+  .work-row.selected { background: var(--selected); }
+  .work-title { font-size: 0.92rem; margin-bottom: 0.15rem; }
+  .work-meta { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; font-size: 0.72rem; color: var(--sub); }
+  .badge { background: var(--tag-bg); border-radius: 3px; padding: 0.05rem 0.4rem; }
+  .badge.ok { color: var(--ok); }
+  .badge.missing { color: var(--missing); }
+
+  .detail-title { font-size: 1.3rem; margin: 0 0 0.3rem; }
+  .detail-year { color: var(--sub); font-size: 0.85rem; margin-bottom: 1rem; }
+  .section { margin-bottom: 1.4rem; }
+  .section h2 { font-size: 0.85rem; color: var(--sub); margin: 0 0 0.4rem; font-weight: 600; }
+  .credit-row { font-size: 0.9rem; margin-bottom: 0.15rem; }
+  .credit-row .label { color: var(--sub); display: inline-block; width: 4.5em; }
+  .release-row { font-size: 0.88rem; margin-bottom: 0.3rem; display: flex; gap: 0.5rem; align-items: baseline; }
+  .release-platform { color: var(--sub); width: 5.5em; flex-shrink: 0; font-size: 0.78rem; }
+  .release-row a { color: var(--link); text-decoration: none; }
+  .release-row a:hover { text-decoration: underline; }
+  .release-missing { color: var(--sub); font-style: italic; font-size: 0.85rem; }
+  .lyrics-box {
+    white-space: pre-wrap; font-size: 0.92rem; line-height: 1.8;
+    border-left: 2px solid var(--line); padding-left: 0.9rem;
   }
-  .song-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    color: var(--sub);
-    background: var(--tag-bg);
-    border-radius: 3px;
-    padding: 0.1rem 0.45rem;
-    margin-left: 0.5rem;
-    vertical-align: middle;
-  }
-  .song-vocal {
-    color: var(--sub);
-    font-size: 0.85rem;
-  }
-  .song-note {
-    color: var(--sub);
-    font-size: 0.8rem;
-    margin-top: 0.2rem;
-  }
-  .song-lyrics {
-    margin-top: 0.5rem;
-    white-space: pre-wrap;
-    font-size: 0.9rem;
-    border-left: 2px solid var(--line);
-    padding-left: 0.8rem;
-  }
+  .empty-note { color: var(--sub); font-size: 0.85rem; font-style: italic; }
+  .placeholder { color: var(--sub); padding: 2rem; text-align: center; }
+  .rights-row { font-size: 0.88rem; }
 </style>
 </head>
 <body>
 
-<h1>Lyrics Archive</h1>
-<p class="desc">Fドアの投稿アーカイブ。ニコニコ動画への投稿日時を発表日として、古い順に並べています。</p>
+<header>
+  <h1>Lyrics Archive</h1>
+  <div class="controls">
+    <select id="filterTag"><option value="">タグ: すべて</option></select>
+    <select id="filterYear"><option value="">年: すべて</option></select>
+    <input id="filterText" type="text" placeholder="タイトル検索..." />
+    <span class="count" id="count"></span>
+  </div>
+</header>
 
-<div class="controls">
-  <label>タグ: <select id="filterTag"><option value="">すべて</option></select></label>
-  <label>年: <select id="filterYear"><option value="">すべて</option></select></label>
-  <input id="filterText" type="text" placeholder="タイトル検索..." />
+<div class="main">
+  <div class="list-pane" id="listPane"></div>
+  <div class="detail-pane" id="detailPane">
+    <div class="placeholder">左のリストから作品を選んでください</div>
+  </div>
 </div>
-<p class="count" id="count"></p>
-
-<ul class="song-list" id="song-list"></ul>
 
 <script>
-let SONGS = [];
+let WORKS = [];
+let selectedId = null;
+
+const PLATFORM_LABEL = { niconico: 'ニコニコ', youtube: 'YouTube', piapro: 'ピアプロ', note: 'note' };
 
 function populateFilters() {
   const tagSel = document.getElementById('filterTag');
   const yearSel = document.getElementById('filterYear');
-  const tags = [...new Set(SONGS.map(s => s.tag).filter(Boolean))].sort();
+  const tags = [...new Set(WORKS.map(w => w.type).filter(Boolean))].sort();
   tags.forEach(t => {
-    const o = document.createElement('option');
-    o.value = t; o.textContent = t;
+    const o = document.createElement('option'); o.value = t; o.textContent = t;
     tagSel.appendChild(o);
   });
-  const years = [...new Set(SONGS.map(s => s.date.slice(0,4)))].sort().reverse();
+  const years = [...new Set(WORKS.map(w => w.productionYear))].sort((a,b) => b - a);
   years.forEach(y => {
-    const o = document.createElement('option');
-    o.value = y; o.textContent = y + '年';
+    const o = document.createElement('option'); o.value = y; o.textContent = y + '年';
     yearSel.appendChild(o);
   });
 }
 
-async function renderList() {
+function hasPlatform(work, platform) {
+  return work.releases.some(r => r.platform === platform && (r.id || r.url));
+}
+
+function renderList() {
   const tagF = document.getElementById('filterTag').value;
   const yearF = document.getElementById('filterYear').value;
   const textF = document.getElementById('filterText').value.trim().toLowerCase();
 
-  const filtered = SONGS.filter(s => {
-    if (tagF && s.tag !== tagF) return false;
-    if (yearF && s.date.slice(0,4) !== yearF) return false;
-    if (textF && !s.title.toLowerCase().includes(textF)) return false;
+  const filtered = WORKS.filter(w => {
+    if (tagF && w.type !== tagF) return false;
+    if (yearF && String(w.productionYear) !== yearF) return false;
+    if (textF && !w.title.toLowerCase().includes(textF)) return false;
     return true;
   });
 
-  document.getElementById('count').textContent = filtered.length + ' 件 / 全' + SONGS.length + '件';
+  document.getElementById('count').textContent = filtered.length + ' / ' + WORKS.length + ' 作品';
 
-  const list = document.getElementById('song-list');
-  list.innerHTML = '';
-
-  for (const song of filtered) {
-    const li = document.createElement('li');
-    li.className = 'song';
-
-    const date = document.createElement('div');
-    date.className = 'song-date';
-    date.textContent = song.date;
-    li.appendChild(date);
+  const pane = document.getElementById('listPane');
+  pane.innerHTML = '';
+  for (const w of filtered) {
+    const row = document.createElement('div');
+    row.className = 'work-row' + (w.songId === selectedId ? ' selected' : '');
+    row.dataset.id = w.songId;
 
     const title = document.createElement('div');
-    title.className = 'song-title';
-    const a = document.createElement('a');
-    a.href = song.url;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.textContent = song.title;
-    title.appendChild(a);
-    if (song.tag) {
-      const tag = document.createElement('span');
-      tag.className = 'song-tag';
-      tag.textContent = song.tag;
-      title.appendChild(tag);
-    }
-    li.appendChild(title);
+    title.className = 'work-title';
+    title.textContent = w.title;
+    row.appendChild(title);
 
-    if (song.vocal) {
-      const vocal = document.createElement('div');
-      vocal.className = 'song-vocal';
-      vocal.textContent = 'Vocal: ' + song.vocal;
-      li.appendChild(vocal);
-    }
+    const meta = document.createElement('div');
+    meta.className = 'work-meta';
 
-    if (song.note) {
-      const note = document.createElement('div');
-      note.className = 'song-note';
-      note.textContent = song.note;
-      li.appendChild(note);
-    }
+    const typeBadge = document.createElement('span');
+    typeBadge.className = 'badge';
+    typeBadge.textContent = w.type;
+    meta.appendChild(typeBadge);
 
-    if (song.lyrics) {
-      try {
-        const lyricsRes = await fetch('lyrics/' + song.lyrics);
-        if (lyricsRes.ok) {
-          const text = await lyricsRes.text();
-          const lyrics = document.createElement('div');
-          lyrics.className = 'song-lyrics';
-          lyrics.textContent = text;
-          li.appendChild(lyrics);
-        }
-      } catch (e) {
-        // 歌詞ファイルが読めなければ無視
-      }
-    }
+    const yearBadge = document.createElement('span');
+    yearBadge.textContent = w.productionYear + '年';
+    meta.appendChild(yearBadge);
 
-    list.appendChild(li);
+    const yt = document.createElement('span');
+    yt.className = 'badge ' + (hasPlatform(w, 'youtube') ? 'ok' : 'missing');
+    yt.textContent = hasPlatform(w, 'youtube') ? 'YT済' : 'YT未';
+    meta.appendChild(yt);
+
+    const rights = document.createElement('span');
+    rights.className = 'badge ' + (w.rights && w.rights.registered ? 'ok' : 'missing');
+    rights.textContent = (w.rights && w.rights.registered) ? '権利登録済' : '権利未登録';
+    meta.appendChild(rights);
+
+    row.appendChild(meta);
+    row.addEventListener('click', () => { selectedId = w.songId; renderList(); renderDetail(w); });
+    pane.appendChild(row);
   }
 }
 
+function renderDetail(w) {
+  const pane = document.getElementById('detailPane');
+  pane.innerHTML = '';
+
+  const title = document.createElement('div');
+  title.className = 'detail-title';
+  title.textContent = w.title;
+  pane.appendChild(title);
+
+  const year = document.createElement('div');
+  year.className = 'detail-year';
+  year.textContent = w.productionYear + '年 ・ ' + w.type;
+  pane.appendChild(year);
+
+  // credits
+  const creditsSec = document.createElement('div');
+  creditsSec.className = 'section';
+  const ch = document.createElement('h2'); ch.textContent = 'クレジット'; creditsSec.appendChild(ch);
+  const labels = { lyrics: '作詞', music: '作曲', arrangement: '編曲' };
+  let hasCredit = false;
+  for (const k of ['lyrics','music','arrangement']) {
+    if (w.credits && w.credits[k]) {
+      hasCredit = true;
+      const r = document.createElement('div'); r.className = 'credit-row';
+      r.innerHTML = '<span class="label">' + labels[k] + '</span>' + w.credits[k];
+      creditsSec.appendChild(r);
+    }
+  }
+  if (!hasCredit) {
+    const n = document.createElement('div'); n.className = 'empty-note'; n.textContent = '未入力';
+    creditsSec.appendChild(n);
+  }
+  pane.appendChild(creditsSec);
+
+  // releases (grouped by platform)
+  const relSec = document.createElement('div');
+  relSec.className = 'section';
+  const rh = document.createElement('h2'); rh.textContent = '投稿・掲載先'; relSec.appendChild(rh);
+  for (const r of w.releases) {
+    const row = document.createElement('div'); row.className = 'release-row';
+    const platform = document.createElement('span');
+    platform.className = 'release-platform';
+    platform.textContent = PLATFORM_LABEL[r.platform] || r.platform;
+    row.appendChild(platform);
+
+    if (r.id || r.url) {
+      const a = document.createElement('a');
+      a.href = r.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.textContent = r.versionLabel || r.url;
+      row.appendChild(a);
+      if (r.date) {
+        const d = document.createElement('span');
+        d.style.color = 'var(--sub)'; d.style.fontSize = '0.78rem';
+        d.textContent = ' (' + r.date + (r.releaseType ? ' / ' + r.releaseType : '') + ')';
+        row.appendChild(d);
+      }
+    } else {
+      const m = document.createElement('span');
+      m.className = 'release-missing';
+      m.textContent = '未掲載';
+      row.appendChild(m);
+    }
+    relSec.appendChild(row);
+  }
+  pane.appendChild(relSec);
+
+  // rights
+  const rightsSec = document.createElement('div');
+  rightsSec.className = 'section';
+  const rgh = document.createElement('h2'); rgh.textContent = '権利登録状況'; rightsSec.appendChild(rgh);
+  const rg = w.rights || {};
+  if (rg.registered) {
+    const r1 = document.createElement('div'); r1.className = 'rights-row';
+    r1.textContent = 'サービス: ' + (rg.service || '(不明)');
+    rightsSec.appendChild(r1);
+    const r2 = document.createElement('div'); r2.className = 'rights-row';
+    r2.textContent = '登録番号: ' + (rg.registrationNumber || '(不明)');
+    rightsSec.appendChild(r2);
+    const r3 = document.createElement('div'); r3.className = 'rights-row';
+    r3.textContent = '申請日: ' + (rg.appliedDate || '(不明)');
+    rightsSec.appendChild(r3);
+  } else {
+    const n = document.createElement('div'); n.className = 'empty-note'; n.textContent = '未登録';
+    rightsSec.appendChild(n);
+  }
+  pane.appendChild(rightsSec);
+
+  // lyrics
+  const lyricsSec = document.createElement('div');
+  lyricsSec.className = 'section';
+  const lh = document.createElement('h2'); lh.textContent = '歌詞'; lyricsSec.appendChild(lh);
+  if (w.lyrics) {
+    const box = document.createElement('div');
+    box.className = 'lyrics-box';
+    box.textContent = w.lyrics;
+    lyricsSec.appendChild(box);
+  } else {
+    const n = document.createElement('div'); n.className = 'empty-note'; n.textContent = '未収録';
+    lyricsSec.appendChild(n);
+  }
+  pane.appendChild(lyricsSec);
+}
+
 async function init() {
-  const res = await fetch('songs.json');
-  SONGS = await res.json();
-  SONGS.sort((a, b) => a.date.localeCompare(b.date));
+  const res = await fetch('works.json');
+  WORKS = await res.json();
+  WORKS.sort((a, b) => b.earliestDate.localeCompare(a.earliestDate));
   populateFilters();
   document.getElementById('filterTag').addEventListener('change', renderList);
   document.getElementById('filterYear').addEventListener('change', renderList);
