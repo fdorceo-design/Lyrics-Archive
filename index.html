@@ -132,6 +132,7 @@ let DETAILS_CACHE = new Map();
 let selectedId = null;
 let activeTags = new Set();
 let shortsOnly = false;
+let noLyricsOnly = false;
 
 const PLATFORM_LABEL = { youtube: 'YouTube', piapro: 'ピアプロ', note: 'note' };
 
@@ -147,6 +148,7 @@ function renderTagChips() {
       if (activeTags.has(t)) activeTags.delete(t);
       else activeTags.add(t);
       shortsOnly = false;
+      noLyricsOnly = false;
       renderTagChips();
       renderQuickFilters();
       renderList();
@@ -167,6 +169,7 @@ function renderQuickFilters() {
     btn.addEventListener('click', () => {
       activeTags = new Set([t]);
       shortsOnly = false;
+      noLyricsOnly = false;
       renderTagChips();
       renderQuickFilters();
       renderList();
@@ -178,12 +181,28 @@ function renderQuickFilters() {
   shortsBtn.textContent = 'ショートのみ';
   shortsBtn.addEventListener('click', () => {
     shortsOnly = !shortsOnly;
+    noLyricsOnly = false;
     if (shortsOnly) activeTags = new Set([...new Set(POSTS.map(p => p.type).filter(Boolean))]);
     renderTagChips();
     renderQuickFilters();
     renderList();
   });
   wrap.appendChild(shortsBtn);
+
+  const noLyricsBtn = document.createElement('span');
+  noLyricsBtn.className = 'tag-chip' + (noLyricsOnly ? ' active' : '');
+  noLyricsBtn.textContent = 'オリジナル歌詞なし';
+  noLyricsBtn.addEventListener('click', () => {
+    noLyricsOnly = !noLyricsOnly;
+    if (noLyricsOnly) {
+      activeTags = new Set(['オリジナル']);
+      shortsOnly = false;
+    }
+    renderTagChips();
+    renderQuickFilters();
+    renderList();
+  });
+  wrap.appendChild(noLyricsBtn);
 }
 
 function populateFilters() {
@@ -215,6 +234,7 @@ function renderList() {
   const filtered = POSTS.filter(p => {
     if (!activeTags.has(p.type)) return false;
     if (shortsOnly && !isShort(p)) return false;
+    if (noLyricsOnly && p.hasLyrics) return false;
     if (yearF && p.date.slice(0,4) !== yearF) return false;
     if (textF && !p.title.toLowerCase().includes(textF)) return false;
     return true;
