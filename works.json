@@ -1673,8 +1673,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42008259",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42008259_la-belle.txt"
  },
  {
   "id": "sm41998155",
@@ -1734,8 +1735,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41923378",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41923378_you-我爱你-gun-do-law-on.txt"
  },
  {
   "id": "sm41918672",
@@ -1775,8 +1777,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41834790",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41834790_pol-(icy).txt"
  },
  {
   "id": "sm41817062",
