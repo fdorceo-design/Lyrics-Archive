@@ -652,8 +652,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44692973",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44692973_Your Effulgence Dance.txt"
  },
  {
   "id": "sm44650339",
@@ -1103,8 +1104,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43428300",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43428300_row engagement.txt"
  },
  {
   "id": "sm43375285",
@@ -1247,8 +1249,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42741219",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42741219_smiles.txt"
  },
  {
   "id": "sm42741214",
@@ -2078,8 +2081,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41123145",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41123145_the past in the future.txt"
  },
  {
   "id": "sm41052178",
