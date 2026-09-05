@@ -1315,8 +1315,9 @@
   "type": "セルフカバー",
   "url": "https://www.nicovideo.jp/watch/sm42593983",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42593983_knownd I known.txt"
  },
  {
   "id": "sm42519080",
@@ -2039,8 +2040,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41231614",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41231614_OJO-exchange.txt"
  },
  {
   "id": "sm41197717",
@@ -2049,8 +2051,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41197717",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41197717_Nc5.txt"
  },
  {
   "id": "sm41162294",
@@ -2059,8 +2062,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41162294",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41162294_sun-and-moon.txt"
  },
  {
   "id": "sm41123145",
