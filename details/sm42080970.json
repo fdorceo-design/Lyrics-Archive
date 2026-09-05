@@ -1,17 +1,17 @@
 {
-  "id": "sm42080970",
-  "credits": {
-    "lyrics": null,
-    "music": null,
-    "arrangement": null
-  },
-  "externalLinks": [],
-  "relatedIds": [
-    "sm42087642",
-    "sm42102027"
-  ],
-  "rightsStatus": {
-    "niconicoMonetization": "registered"
-  },
-  "notes": ""
+ "id": "sm42080970",
+ "credits": {
+  "lyrics": null,
+  "music": null,
+  "arrangement": null
+ },
+ "externalLinks": [],
+ "relatedIds": [
+  "sm42087642",
+  "sm42102027"
+ ],
+ "rightsStatus": {
+  "niconicoMonetization": "not_registered"
+ },
+ "notes": ""
 }

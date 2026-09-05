@@ -1,21 +1,21 @@
 {
-  "id": "sm43787214",
-  "credits": {
-    "lyrics": null,
-    "music": null,
-    "arrangement": null
-  },
-  "externalLinks": [
-    {
-      "platform": "youtube",
-      "id": "10qmr9mD7gE",
-      "url": "https://www.youtube.com/watch?v=10qmr9mD7gE",
-      "versionLabel": "me inside me"
-    }
-  ],
-  "relatedIds": [],
-  "rightsStatus": {
-    "niconicoMonetization": "registered"
-  },
-  "notes": ""
+ "id": "sm43787214",
+ "credits": {
+  "lyrics": null,
+  "music": null,
+  "arrangement": null
+ },
+ "externalLinks": [
+  {
+   "platform": "youtube",
+   "id": "10qmr9mD7gE",
+   "url": "https://www.youtube.com/watch?v=10qmr9mD7gE",
+   "versionLabel": "me inside me"
+  }
+ ],
+ "relatedIds": [],
+ "rightsStatus": {
+  "niconicoMonetization": "not_registered"
+ },
+ "notes": ""
 }

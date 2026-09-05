@@ -997,8 +997,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43620846",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43620846_Anytime by your side.txt"
  },
  {
   "id": "sm43558590",
@@ -1007,8 +1008,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43558590",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43558590_歌.txt"
  },
  {
   "id": "sm43527721",
@@ -1160,8 +1162,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43336755",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43336755_Dose.txt"
  },
  {
   "id": "sm43297631",
@@ -1170,8 +1173,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43297631",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43297631_La Oré.txt"
  },
  {
   "id": "sm43270808",

@@ -304,7 +304,7 @@ function selectPost(id) {
 
 async function loadDetails(id) {
   if (DETAILS_CACHE.has(id)) return DETAILS_CACHE.get(id);
-  const res = await fetch('details/' + encodeURIComponent(id) + '.json');
+  const res = await fetch('details/' + encodeURIComponent(id) + '.json?v=' + Date.now());
   if (!res.ok) throw new Error('詳細データを読み込めませんでした');
   const detail = await res.json();
   DETAILS_CACHE.set(id, detail);
@@ -313,7 +313,7 @@ async function loadDetails(id) {
 
 async function loadLyrics(path) {
   const url = path.split('/').map(encodeURIComponent).join('/');
-  const res = await fetch(url);
+  const res = await fetch(url + '?v=' + Date.now());
   if (!res.ok) throw new Error('歌詞を読み込めませんでした');
   return res.text();
 }
@@ -530,7 +530,7 @@ async function renderDetail(p) {
 }
 
 async function init() {
-  const res = await fetch('works.json');
+  const res = await fetch('works.json?v=' + Date.now());
   POSTS = await res.json();
   POSTS.sort((a, b) => b.date.localeCompare(a.date));
   POSTS_BY_ID = new Map(POSTS.map(p => [p.id, p]));

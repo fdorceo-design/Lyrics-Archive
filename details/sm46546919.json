@@ -1,28 +1,28 @@
 {
-  "id": "sm46546919",
-  "credits": {
-    "lyrics": null,
-    "music": null,
-    "arrangement": null
+ "id": "sm46546919",
+ "credits": {
+  "lyrics": null,
+  "music": null,
+  "arrangement": null
+ },
+ "externalLinks": [
+  {
+   "platform": "youtube",
+   "id": "kiJkiBwFElk",
+   "url": "https://www.youtube.com/shorts/kiJkiBwFElk",
+   "versionLabel": "-8 Go Death com- OriginalMV (空耳版Short)"
   },
-  "externalLinks": [
-    {
-      "platform": "youtube",
-      "id": "kiJkiBwFElk",
-      "url": "https://www.youtube.com/shorts/kiJkiBwFElk",
-      "versionLabel": "-8 Go Death com- OriginalMV (空耳版Short)"
-    },
-    {
-      "platform": "piapro",
-      "url": "https://piapro.jp/t/M1lx"
-    }
-  ],
-  "relatedIds": [
-    "sm46546413",
-    "ss46546901"
-  ],
-  "rightsStatus": {
-    "niconicoMonetization": "registered"
-  },
-  "notes": ""
+  {
+   "platform": "piapro",
+   "url": "https://piapro.jp/t/M1lx"
+  }
+ ],
+ "relatedIds": [
+  "sm46546413",
+  "ss46546901"
+ ],
+ "rightsStatus": {
+  "niconicoMonetization": "not_registered"
+ },
+ "notes": ""
 }
