@@ -232,8 +232,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm46142271",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm46142271_Return to your birthday.txt"
  },
  {
   "id": "sm46093049",
@@ -315,9 +316,8 @@
   "type": "デモ",
   "url": "https://www.nicovideo.jp/watch/sm45767584",
   "deviceRestricted": false,
-  "hasLyrics": true,
-  "hasYouTube": false,
-  "lyricsFile": "lyrics/sm45767584_Return to your birthday.txt"
+  "hasLyrics": false,
+  "hasYouTube": false
  },
  {
   "id": "sm45722516",
