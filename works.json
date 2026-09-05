@@ -1205,8 +1205,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43112503",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43112503_風靡.txt"
  },
  {
   "id": "sm43046861",
@@ -1256,8 +1257,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42801540",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42801540_min(e).txt"
  },
  {
   "id": "sm42765381",
@@ -1308,8 +1310,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42722192",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42722192_偶像崇拝.txt"
  },
  {
   "id": "sm42711962",
@@ -1338,8 +1341,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42658136",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42658136_明けの光明.txt"
  },
  {
   "id": "sm42593983",
@@ -1359,8 +1363,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42519080",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42519080_never.txt"
  },
  {
   "id": "sm42495715",
