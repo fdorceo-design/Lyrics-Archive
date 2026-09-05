@@ -1,3 +1,37 @@
 # Fドア作品一覧
 
 https://fdorceo-design.github.io/Lyrics-Archive/
+
+## データ構成
+
+- `works.json` — 投稿一覧（830件、ニコニコ投稿1件=1エントリ）。一覧表示用の最小情報のみ。
+- `details/<id>.json` — 投稿ごとのクレジット・外部リンク・関連曲・権利状況。
+- `lyrics/<id>_<曲名>.txt` — 歌詞本文。
+
+## 歌詞・タイプ付けのルール
+
+- **タグ（type）は「オリジナル／セルフカバー／カバー／デモ／別版／…」のいずれか1つ。**
+  - `別版` = 同じ音源の別フォーマット（ニコニコショート用縦版、それを横向きに再編集した横版など）。歌唱・音源自体は同じ。
+  - 歌唱し直し（音源が別）は `別版` ではなく `セルフカバー`。
+  - ショート（IDが`ss`始まり）は基本的に `別版`。ただし歌い直しなら `セルフカバー`。
+- **歌詞テキストは「その曲群で一番最初に投稿されたオリジナル（またはセルフカバー）」1件にのみ紐づける。**
+  - 同じ曲の別版・ショート・カラオケ版などは歌詞を持たず、詳細ページの「関連曲」からオリジナル側の歌詞を参照する。
+  - オリジナルがまだ存在せず、デモしか投稿されていない曲は、暫定的にそのデモに歌詞を紐づけてよい。
+- **上記の「デモにのみ歌詞がある」状態の曲について、後から本当のオリジナルが投稿された場合の対応:**
+  1. `lyrics/<デモのID>_....txt` を `lyrics/<新オリジナルのID>_....txt` にリネーム（`git mv`）。
+  2. `works.json` で、デモ側の `hasLyrics` を `false`・`lyricsFile` を削除し、新オリジナル側に `hasLyrics: true` と正しい `lyricsFile` を設定。
+  3. `details/<デモのID>.json` と `details/<新オリジナルのID>.json` の `relatedIds` を相互に追加する。
+  4. 新オリジナルが投稿されたことで、そのオリジナルより明らかに古いバージョンが「本来のオリジナル」だった場合は、`type`もオリジナル/別版で入れ替える。
+- 歌詞ファイルとpostの紐付けに矛盾がないかは以下でチェックできる:
+  ```python
+  # works.json の hasLyrics/lyricsFile が lyrics/ 以下の実ファイルと一致しているか確認
+  import json, os
+  posts = json.load(open('works.json', encoding='utf-8'))
+  existing = set(os.listdir('lyrics'))
+  for p in posts:
+      if p.get('hasLyrics'):
+          fname = (p.get('lyricsFile') or '').split('/')[-1]
+          assert fname in existing, p['id']
+          assert fname.startswith(p['id'] + '_'), p['id']
+  ```
+
