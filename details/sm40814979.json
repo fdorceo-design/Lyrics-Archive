@@ -1,14 +1,17 @@
 {
-  "id": "sm40814979",
-  "credits": {
-    "lyrics": null,
-    "music": null,
-    "arrangement": null
-  },
-  "externalLinks": [],
-  "relatedIds": [],
-  "rightsStatus": {
-    "niconicoMonetization": "registered"
-  },
-  "notes": ""
+ "id": "sm40814979",
+ "credits": {
+  "lyrics": null,
+  "music": null,
+  "arrangement": null
+ },
+ "externalLinks": [],
+ "relatedIds": [
+  "sm40812525",
+  "sm40815005"
+ ],
+ "rightsStatus": {
+  "niconicoMonetization": "registered"
+ },
+ "notes": ""
 }
