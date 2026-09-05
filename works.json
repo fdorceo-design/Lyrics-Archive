@@ -1547,8 +1547,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42148133",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42148133_chord.txt"
  },
  {
   "id": "sm42136239",
@@ -1557,8 +1558,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42136239",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42136239_gala.txt"
  },
  {
   "id": "sm42115521",
@@ -1567,8 +1569,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42115521",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42115521_ゲシュタポ☆ワンダーランド.txt"
  },
  {
   "id": "sm42109868",
@@ -1587,8 +1590,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42102027",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42102027_more than just right!.txt"
  },
  {
   "id": "sm42087642",
