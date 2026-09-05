@@ -692,7 +692,7 @@
   "id": "sm44572979",
   "title": "reflection (MMD.ver) : Natalie【オリジナル】",
   "date": "2025-01-24",
-  "type": "オリジナル",
+  "type": "別版",
   "url": "https://www.nicovideo.jp/watch/sm44572979",
   "deviceRestricted": false,
   "hasLyrics": false,
@@ -705,8 +705,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44564977",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44564977_reflection.txt"
  },
  {
   "id": "sm44343648",
