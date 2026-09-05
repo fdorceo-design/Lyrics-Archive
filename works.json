@@ -296,8 +296,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45911311",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45911311_Do Strike Abstract Life.txt"
  },
  {
   "id": "sm45775321",
@@ -391,8 +392,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45653841",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45653841_牛乳キャップ外すあれ.txt"
  },
  {
   "id": "sm45649652",
@@ -401,8 +403,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45649652",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45649652_new sensation.txt"
  },
  {
   "id": "sm45600314",
@@ -411,8 +414,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45600314",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45600314_universe as me.txt"
  },
  {
   "id": "sm45576968",
@@ -421,8 +425,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45576968",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45576968_Take a breath.txt"
  },
  {
   "id": "sm45576951",
@@ -441,8 +446,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45561901",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45561901_便利な悪魔.txt"
  },
  {
   "id": "sm45545634",
@@ -461,8 +467,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45536175",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45536175_wish that.txt"
  },
  {
   "id": "sm45449457",
@@ -598,7 +605,7 @@
   "id": "sm44887426",
   "title": "1st-Day　New Edition：Mai【Original - Lyric Video】",
   "date": "2025-04-18",
-  "type": "オリジナル",
+  "type": "セルフカバー",
   "url": "https://www.nicovideo.jp/watch/sm44887426",
   "deviceRestricted": false,
   "hasLyrics": false,
@@ -644,8 +651,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44885941",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44885941_U-Z-A.txt"
  },
  {
   "id": "sm44692973",
@@ -5636,8 +5644,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm35244872",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm35244872_1st-Day.txt"
  },
  {
   "id": "sm35234639",
