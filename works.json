@@ -874,8 +874,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43787214",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": true
+  "hasLyrics": true,
+  "hasYouTube": true,
+  "lyricsFile": "lyrics/sm43787214_me inside me.txt"
  },
  {
   "id": "sm43763093",
@@ -1094,8 +1095,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43429530",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43429530_prisoner.txt"
  },
  {
   "id": "sm43428300",
@@ -1604,8 +1606,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42042623",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42042623_world of mercy.txt"
  },
  {
   "id": "sm42035871",
