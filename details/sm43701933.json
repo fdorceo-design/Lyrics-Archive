@@ -1,14 +1,16 @@
 {
-  "id": "sm43701933",
-  "credits": {
-    "lyrics": null,
-    "music": null,
-    "arrangement": null
-  },
-  "externalLinks": [],
-  "relatedIds": [],
-  "rightsStatus": {
-    "niconicoMonetization": "registered"
-  },
-  "notes": ""
+ "id": "sm43701933",
+ "credits": {
+  "lyrics": null,
+  "music": null,
+  "arrangement": null
+ },
+ "externalLinks": [],
+ "relatedIds": [
+  "sm43688853"
+ ],
+ "rightsStatus": {
+  "niconicoMonetization": "registered"
+ },
+ "notes": ""
 }

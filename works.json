@@ -778,8 +778,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44159756",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44159756_tall tales.txt"
  },
  {
   "id": "sm44063312",
@@ -788,8 +789,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44063312",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44063312_observador-incompetente.txt"
  },
  {
   "id": "sm44055755",
@@ -818,8 +820,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43954775",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43954775_moving.txt"
  },
  {
   "id": "sm43952545",
@@ -828,8 +831,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43952545",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43952545_never change-me.txt"
  },
  {
   "id": "sm43926159",
@@ -951,8 +955,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43688853",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43688853_My bubble-like outer space.txt"
  },
  {
   "id": "sm43676912",
