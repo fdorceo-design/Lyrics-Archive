@@ -37,13 +37,14 @@ https://fdorceo-design.github.io/Lyrics-Archive/
           assert fname.startswith(p['id'] + '_'), p['id']
   ```
 
-## License
+## Copyright / License
 
 All Rights Reserved.
 
 本リポジトリはFドア（Fdor）の投稿作品の一覧・自作歌詞のアーカイブです。
 
-- 自作の楽曲・歌詞（詩）の著作権はFドア（Fdor）に帰属します。無断転載・複製・二次利用を禁じます。利用の際はお問い合わせください。
+- 本リポジトリに掲載している自作の歌詞（詩）その他の著作物の著作権はFドア（Fdor）に帰属します。
+- 法令上認められる場合、およびGitHubの利用規約・サービス機能上認められる利用を除き、無断転載・複製・二次利用を禁じます。利用の際はお問い合わせください。
 （[Issues](https://github.com/fdorceo-design/Lyrics-Archive/issues) または [X: @fdorceo](https://x.com/fdorceo)）
 - カバー曲についてはタイトル等のメタデータのみを掲載しており、歌詞・音源は掲載していません。当該楽曲の著作権は原著作者に帰属します。
 - 音源・動画本体は掲載しておらず、ニコニコ動画等、動画サイトへの外部リンクのみです。
