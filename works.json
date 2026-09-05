@@ -371,8 +371,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45662242",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45662242_Panda.txt"
  },
  {
   "id": "sm45662219",
@@ -744,8 +745,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44296651",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44296651_私は私.txt"
  },
  {
   "id": "sm44229280",
@@ -979,8 +981,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43621184",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43621184_烙印.txt"
  },
  {
   "id": "sm43620846",
