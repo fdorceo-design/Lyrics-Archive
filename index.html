@@ -505,16 +505,16 @@ async function renderDetail(p) {
   }
 
   if (lyricsSource) {
+    const box = document.createElement('div');
+    box.className = 'lyrics-box';
+    box.textContent = '読み込み中…';
+    lyricsSec.appendChild(box);
     if (lyricsSource.id !== p.id) {
       const note = document.createElement('div');
       note.className = 'empty-note';
       note.textContent = '※「' + lyricsSource.title + '」と同じ歌詞';
       lyricsSec.appendChild(note);
     }
-    const box = document.createElement('div');
-    box.className = 'lyrics-box';
-    box.textContent = '読み込み中…';
-    lyricsSec.appendChild(box);
     pane.appendChild(lyricsSec);
     try {
       const lyrics = await loadLyrics(lyricsSource.lyricsFile);
