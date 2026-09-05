@@ -1,19 +1,22 @@
 {
-  "id": "sm34447508",
-  "credits": {
-    "lyrics": null,
-    "music": null,
-    "arrangement": null
-  },
-  "externalLinks": [],
-  "relatedIds": [
-    "sm34543665",
-    "sm40631090",
-    "sm40652047",
-    "sm40719254"
-  ],
-  "rightsStatus": {
-    "niconicoMonetization": "registered"
-  },
-  "notes": ""
+ "id": "sm34447508",
+ "credits": {
+  "lyrics": null,
+  "music": null,
+  "arrangement": null
+ },
+ "externalLinks": [],
+ "relatedIds": [
+  "sm34543665",
+  "sm40631090",
+  "sm40652047",
+  "sm40719254",
+  "sm34005261",
+  "sm34008163",
+  "sm34166191"
+ ],
+ "rightsStatus": {
+  "niconicoMonetization": "registered"
+ },
+ "notes": ""
 }
