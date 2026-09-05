@@ -349,9 +349,8 @@
   "type": "セルフカバー",
   "url": "https://www.nicovideo.jp/watch/sm45702445",
   "deviceRestricted": false,
-  "hasLyrics": true,
-  "hasYouTube": false,
-  "lyricsFile": "lyrics/sm45702445_夜しか眠れない.txt"
+  "hasLyrics": false,
+  "hasYouTube": false
  },
  {
   "id": "sm45692747",
@@ -754,8 +753,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44229280",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44229280_六生.txt"
  },
  {
   "id": "sm44213910",
@@ -1356,8 +1356,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42495715",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42495715_夜しか眠れない.txt"
  },
  {
   "id": "sm42464759",
