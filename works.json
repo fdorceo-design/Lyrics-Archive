@@ -1921,8 +1921,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41495734",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41495734_麻雀インチキ物語.txt"
  },
  {
   "id": "sm41468783",
@@ -1951,8 +1952,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41442275",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41442275_AIがお絵かき.txt"
  },
  {
   "id": "sm41441574",
@@ -1961,8 +1963,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41441574",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41441574_偽坂本龍一の憂鬱.txt"
  },
  {
   "id": "sm41423488",
@@ -1971,8 +1974,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41423488",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41423488_junk pod.txt"
  },
  {
   "id": "sm41409550",
