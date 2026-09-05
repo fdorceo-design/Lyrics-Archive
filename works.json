@@ -1985,8 +1985,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41409550",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41409550_i to you.txt"
  },
  {
   "id": "sm41400095",
@@ -1995,8 +1996,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41400095",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41400095_colosseum.txt"
  },
  {
   "id": "sm41393899",
@@ -2025,8 +2027,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41371820",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41371820_eng - (Absolute).txt"
  },
  {
   "id": "sm41345177",
@@ -2139,8 +2142,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41052178",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41052178_singularities.txt"
  },
  {
   "id": "sm41015815",
@@ -2149,8 +2153,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41015815",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41015815_親愛なる人へ.txt"
  },
  {
   "id": "sm41003396",
@@ -2159,8 +2164,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41003396",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41003396_心臓.txt"
  },
  {
   "id": "sm40987618",
@@ -2179,8 +2185,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm40972729",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm40972729_分別インポッシブル.txt"
  },
  {
   "id": "sm40951834",
@@ -2189,8 +2196,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm40951834",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm40951834_golden goose.txt"
  },
  {
   "id": "sm40948045",
@@ -2209,8 +2217,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm40923229",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm40923229_bitter pain.txt"
  },
  {
   "id": "sm40911158",
@@ -2850,8 +2859,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm39966248",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm39966248_二人でいれば.txt"
  },
  {
   "id": "sm39943065",
@@ -3088,7 +3098,7 @@
   "id": "sm39265426",
   "title": "さるたん【オリジナル】MMD-MV_kiritan nana iroha GUMI yuki sasara",
   "date": "2021-08-31",
-  "type": "オリジナル",
+  "type": "セルフカバー",
   "url": "https://www.nicovideo.jp/watch/sm39265426",
   "deviceRestricted": false,
   "hasLyrics": false,
