@@ -1113,8 +1113,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43375285",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43375285_緋色の研究.txt"
  },
  {
   "id": "sm43424196",
@@ -1344,8 +1345,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42464759",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42464759_顔のない言葉.txt"
  },
  {
   "id": "sm42448878",
@@ -1414,8 +1416,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42251508",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42251508_poka.txt"
  },
  {
   "id": "sm42236143",
@@ -2716,8 +2719,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm40077457",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm40077457_A_Report.txt"
  },
  {
   "id": "sm40062567",
@@ -2926,8 +2930,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm39453721",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm39453721_浮遊粉塵.txt"
  },
  {
   "id": "sm39425739",
@@ -4387,8 +4392,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm37222235",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm37222235_seijyaku.txt"
  },
  {
   "id": "sm37218830",
@@ -7641,8 +7647,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm32915123",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm32915123_若者言葉がわからない.txt"
  },
  {
   "id": "sm32909622",
@@ -8012,8 +8019,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm32619992",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm32619992_ちくわそしてピーマン.txt"
  },
  {
   "id": "sm32616438",
