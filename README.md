@@ -2,6 +2,8 @@
 
 https://fdorceo-design.github.io/Lyrics-Archive/
 
+歌詞掲載は自作詩のみ。
+
 ## データ構成
 
 - `works.json` — 投稿一覧（830件、ニコニコ投稿1件=1エントリ）。一覧表示用の最小情報のみ。
@@ -34,4 +36,15 @@ https://fdorceo-design.github.io/Lyrics-Archive/
           assert fname in existing, p['id']
           assert fname.startswith(p['id'] + '_'), p['id']
   ```
+
+## License
+
+All Rights Reserved.
+
+本リポジトリはFドア（Fdor）の投稿作品の一覧・自作歌詞のアーカイブです。
+
+- 自作の楽曲・歌詞（詩）の著作権はFドア（Fdor）に帰属します。無断転載・複製・二次利用を禁じます。利用の際はお問い合わせください。
+（[Issues](https://github.com/fdorceo-design/Lyrics-Archive/issues) または [X: @fdorceo](https://x.com/fdorceo)）
+- カバー曲についてはタイトル等のメタデータのみを掲載しており、歌詞・音源は掲載していません。当該楽曲の著作権は原著作者に帰属します。
+- 音源・動画本体は掲載しておらず、ニコニコ動画等、動画サイトへの外部リンクのみです。
 
