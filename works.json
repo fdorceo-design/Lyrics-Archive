@@ -611,8 +611,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44886930",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44886930_tacky mantra.txt"
  },
  {
   "id": "sm44886506",
@@ -632,8 +633,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44886218",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44886218_血肉.txt"
  },
  {
   "id": "sm44885941",
@@ -753,8 +755,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm44213910",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm44213910_虹.txt"
  },
  {
   "id": "sm44159756",
@@ -833,8 +836,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43846453",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": true,
+  "lyricsFile": "lyrics/sm43846453_bedroom universe.txt"
  },
  {
   "id": "sm43842752",
@@ -854,7 +858,7 @@
   "url": "https://www.nicovideo.jp/watch/sm43839309",
   "deviceRestricted": false,
   "hasLyrics": false,
-  "hasYouTube": true
+  "hasYouTube": false
  },
  {
   "id": "sm43798153",
