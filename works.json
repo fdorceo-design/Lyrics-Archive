@@ -1164,8 +1164,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm43257769",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm43257769_no crime.txt"
  },
  {
   "id": "sm43112503",
@@ -1214,8 +1215,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm42880764",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm42880764_Peace out.txt"
  },
  {
   "id": "sm42801540",
@@ -1659,8 +1661,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41961974",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41961974_red line.txt"
  },
  {
   "id": "sm41948076",
@@ -1709,8 +1712,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41911267",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41911267_resurrected.txt"
  },
  {
   "id": "sm41860632",
@@ -1739,8 +1743,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm41817062",
   "deviceRestricted": true,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm41817062_Tao.txt"
  },
  {
   "id": "sm41794911",
