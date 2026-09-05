@@ -315,8 +315,9 @@
   "type": "デモ",
   "url": "https://www.nicovideo.jp/watch/sm45767584",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45767584_Return to your birthday.txt"
  },
  {
   "id": "sm45722516",
@@ -325,8 +326,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45722516",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45722516_slap-tics chups.txt"
  },
  {
   "id": "sm45709721",
@@ -346,8 +348,9 @@
   "type": "セルフカバー",
   "url": "https://www.nicovideo.jp/watch/sm45702445",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45702445_夜しか眠れない.txt"
  },
  {
   "id": "sm45692747",
@@ -377,8 +380,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm45662219",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm45662219_Panda.txt"
  },
  {
   "id": "sm45653841",
@@ -4182,8 +4186,9 @@
   "type": "オリジナル",
   "url": "https://www.nicovideo.jp/watch/sm37456462",
   "deviceRestricted": false,
-  "hasLyrics": false,
-  "hasYouTube": false
+  "hasLyrics": true,
+  "hasYouTube": false,
+  "lyricsFile": "lyrics/sm37456462_Summer time record.txt"
  },
  {
   "id": "sm37450696",
